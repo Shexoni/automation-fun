@@ -14,11 +14,15 @@ describe('testing swap functionality', () => {
     cy.get("div[title='Wrapped Ether']")
       .contains('Wrapped Ether')
       .click({ force: true });
-    cy.get('input#swap-currency-input').type('0.5');
-    cy.get('input#swap-currency-output').should('have.value', '0.5');
+    cy.get('input#swap-currency-input').type('0.1');
+    cy.get('input#swap-currency-output').should('have.value', '0.1');
     cy.get('[data-testid="wrap-button"]').click();
-    s;
+
     cy.confirmMetamaskPermissionToSpend();
+
+    cy.on('window:alert', (str) => {
+      expect(str).to.equal('Wrapped');
+    });
   });
   it('shows inefficient funds', () => {});
 });

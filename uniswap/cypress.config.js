@@ -7,6 +7,8 @@ module.exports = defineConfig({
   defaultCommandTimeout: 30000,
   pageLoadTimeout: 30000,
   requestTimeout: 30000,
+  video: false,
+  screenshotOnRunFailure: false,
   e2e: {
     testIsolation: true,
     setupNodeEvents(on, config) {
